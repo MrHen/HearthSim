@@ -48,7 +48,7 @@ public class SpellDamage extends SpellCard {
     }
 
     @Override
-	public Object deepCopy() {
+	public SpellCard deepCopy() {
 		return new SpellDamage(this.getMana(), damage_, this.hasBeenUsed());
 	}
 
