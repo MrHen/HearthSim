@@ -10,6 +10,7 @@ import com.hearthsim.exception.HSInvalidPlayerIndexException;
 import com.hearthsim.util.DeepCopyable;
 import com.hearthsim.util.IdentityLinkedList;
 import com.hearthsim.util.MinionList;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.MDC;
@@ -472,7 +473,8 @@ public class BoardModel implements DeepCopyable<BoardModel> {
         return modelForSide(playerSide).getHero().getHealth() > 0;
     }
 
-    public ArrayList<Integer> getAttackableMinions() {
+    @SuppressWarnings("unused")
+	public ArrayList<Integer> getAttackableMinions() {
         ArrayList<Integer> toRet = new ArrayList<Integer>();
         boolean hasTaunt = false;
         for (final Minion minion : waitingPlayer.getMinions()) {
