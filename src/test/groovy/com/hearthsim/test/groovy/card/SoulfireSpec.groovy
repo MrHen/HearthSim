@@ -25,7 +25,7 @@ class SoulfireSpec extends CardSpec {
 		def health1 = 7;
 
 		def commonField = [
-			[mana: minionMana, attack: attack, maxHealth: health0], //todo: attack may be irrelevant here
+			[mana: minionMana, attack: attack, maxHealth: health0], //TODO: attack may be irrelevant here
 		]
 
 		startingBoard = new BoardModelBuilder().make {

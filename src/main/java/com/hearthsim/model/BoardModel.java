@@ -730,7 +730,7 @@ public class BoardModel implements DeepCopyable<BoardModel> {
         return waitingPlayer;
     }
 
-    // todo: remove asap, simply to aid in refactoring
+    // TODO: remove asap, simply to aid in refactoring
     public int getIndexOfPlayer(PlayerSide playerSide) {
         if (playerSide == PlayerSide.CURRENT_PLAYER){
             return 0;
@@ -739,7 +739,7 @@ public class BoardModel implements DeepCopyable<BoardModel> {
         }
     }
 
-    // todo: remove asap, simply to aid in refactoring
+    // TODO: remove asap, simply to aid in refactoring
     public PlayerSide getPlayerByIndex(int index) {
         if (index == 0){
             return PlayerSide.CURRENT_PLAYER;
