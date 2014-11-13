@@ -81,11 +81,11 @@ public class TestWeapon {
 		ret = hero.attack(PlayerSide.WAITING_PLAYER, target, ret, deck, null);
 		assertEquals(board, ret);
 
-		assertTrue(board.data_.getCurrentPlayerHero().getHealth() == 30);
-		assertTrue(board.data_.getWaitingPlayerHero().getHealth() == 27);
+		assertEquals(board.data_.getCurrentPlayerHero().getHealth(), 30);
+		assertEquals(board.data_.getWaitingPlayerHero().getHealth(), 27);
 
-		assertTrue(board.data_.getCurrentPlayerHero().getAttack() == 3);
-		assertTrue(board.data_.getCurrentPlayerHero().getWeaponCharge() == 1);
+		assertEquals(board.data_.getCurrentPlayerHero().getAttack(), 3);
+		assertEquals(board.data_.getCurrentPlayerHero().getWeaponCharge(), 1);
 	}
 
 	@Test
@@ -103,11 +103,11 @@ public class TestWeapon {
 		ret = hero.attack(PlayerSide.WAITING_PLAYER, target, ret, deck, null);		
 		assertNull(ret);
 
-		assertTrue(board.data_.getCurrentPlayerHero().getHealth() == 30);
-		assertTrue(board.data_.getWaitingPlayerHero().getHealth() == 27);
+		assertEquals(board.data_.getCurrentPlayerHero().getHealth(), 30);
+		assertEquals(board.data_.getWaitingPlayerHero().getHealth(), 27);
 
-		assertTrue(board.data_.getCurrentPlayerHero().getAttack() == 3);
-		assertTrue(board.data_.getCurrentPlayerHero().getWeaponCharge() == 1);
+		assertEquals(board.data_.getCurrentPlayerHero().getAttack(), 3);
+		assertEquals(board.data_.getCurrentPlayerHero().getWeaponCharge(), 1);
 	}
 
 
@@ -123,11 +123,11 @@ public class TestWeapon {
 		ret = hero.attack(PlayerSide.WAITING_PLAYER, target, ret, deck, null);
 		assertEquals(board, ret);
 
-		assertTrue(board.data_.getCurrentPlayerHero().getHealth() == 30);
-		assertTrue(board.data_.getWaitingPlayerHero().getHealth() == 27);
+		assertEquals(board.data_.getCurrentPlayerHero().getHealth(), 30);
+		assertEquals(board.data_.getWaitingPlayerHero().getHealth(), 27);
 
-		assertTrue(board.data_.getCurrentPlayerHero().getAttack() == 0);
-		assertTrue(board.data_.getCurrentPlayerHero().getWeaponCharge() == 0);
+		assertEquals(board.data_.getCurrentPlayerHero().getAttack(), 0);
+		assertEquals(board.data_.getCurrentPlayerHero().getWeaponCharge(), 0);
 	}
 
 	@Test
