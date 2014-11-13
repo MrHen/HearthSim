@@ -149,7 +149,7 @@ public class BruteForceSearchAI implements ArtificialPlayer {
 	 * @return
 	 */
 	public double cardInHandScore(Card card) {
-		double theScore = 0.0;
+		double theScore = 0.001; // need non-zero so the AI values TheCoin and Innervate
 		if (card instanceof SpellDamage) {
 			theScore += ((SpellDamage)card).getAttack() * spellDamageMultiplierWeight + spellDamageAddWeight;
 		} else if (card instanceof Minion) {
@@ -265,8 +265,13 @@ public class BruteForceSearchAI implements ArtificialPlayer {
 			if (curMove instanceof StopNode) {
 				HearthTreeNode allEffectsDone = ((StopNode)curMove).finishAllEffects(playerModel0.getDeck(), playerModel1.getDeck());
 				List<HearthActionBoardPair> nextMoves = this.playTurn(turn, allEffectsDone.data_, maxThinkTime);
-				for( HearthActionBoardPair actionBoard : nextMoves) {
-					retList.add(actionBoard);
+				if(nextMoves.size() == 0) {
+					// if no further actions can be taken, save the result after the stop node has resolved
+					retList.add(new HearthActionBoardPair(null, allEffectsDone.data_));
+				} else {
+					for( HearthActionBoardPair actionBoard : nextMoves) {
+						retList.add(actionBoard);
+					}
 				}
 				break;
 			} else {
