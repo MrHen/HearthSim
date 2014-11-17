@@ -128,7 +128,8 @@ public class PlayerModel implements DeepCopyable<PlayerModel> {
         this.overload = overload;
     }
 
-    public String toString() {
+    @Override
+	public String toString() {
         return new JSONObject(this).toString();
     }
 

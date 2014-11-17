@@ -226,6 +226,7 @@ public abstract class Hero extends Minion {
 		return boardModel;
 	}
 
+	@Override
 	public JSONObject toJSON() {
 		JSONObject json = super.toJSON();
 		json.put("armor", this.armor_);
