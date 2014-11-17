@@ -88,7 +88,7 @@ public class Deck implements DeepCopyable<Deck> {
 		Card[] copiedCards = new Card[cards_.length];
 		int indx = 0;
 		for (Card card : cards_) {
-			copiedCards[indx++] = (Card)card.deepCopy();
+			copiedCards[indx++] = card.deepCopy();
 		}
 		Deck copied = new Deck(copiedCards);
 		return copied;

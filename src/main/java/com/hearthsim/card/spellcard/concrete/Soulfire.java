@@ -6,7 +6,6 @@ import com.hearthsim.card.minion.Hero;
 import com.hearthsim.card.minion.Minion;
 import com.hearthsim.card.spellcard.SpellDamage;
 import com.hearthsim.exception.HSException;
-import com.hearthsim.model.BoardModel;
 import com.hearthsim.model.PlayerSide;
 import com.hearthsim.util.HearthAction;
 import com.hearthsim.util.IdentityLinkedList;
@@ -62,7 +61,7 @@ public class Soulfire extends SpellDamage {
 			toRet = new RandomEffectNode(boardState, new HearthAction(HearthAction.Verb.USE_CARD, PlayerSide.CURRENT_PLAYER, 0, side, targetCharacterIndex));
 			for (int indx = 0; indx < toRet.data_.getCurrentPlayerHand().size(); ++indx) {
 				if (indx != thisCardIndex) {
-					HearthTreeNode cNode = new HearthTreeNode((BoardModel)toRet.data_.deepCopy());
+					HearthTreeNode cNode = new HearthTreeNode(toRet.data_.deepCopy());
 					Minion cTargetMinion = cNode.data_.getCurrentPlayerCharacter(targetCharacterIndex);
 					Soulfire cCard = (Soulfire)cNode.data_.getCurrentPlayerHand().get(thisCardIndex);
 					cNode = cCard.callSuperUseOn(side, cTargetMinion, cNode, deckPlayer0, deckPlayer1, false);

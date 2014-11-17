@@ -604,7 +604,7 @@ public class BoardModel implements DeepCopyable<BoardModel> {
 
     public BoardModel flipPlayers() {
 
-        BoardModel newBoard = new BoardModel((PlayerModel) waitingPlayer.deepCopy(), (PlayerModel) currentPlayer.deepCopy());
+        BoardModel newBoard = new BoardModel(waitingPlayer.deepCopy(), currentPlayer.deepCopy());
 
         newBoard.p0_deckPos_ = this.p1_deckPos_;
         newBoard.p1_deckPos_ = this.p0_deckPos_;
@@ -637,7 +637,7 @@ public class BoardModel implements DeepCopyable<BoardModel> {
 
     @Override
 	public BoardModel deepCopy() {
-        BoardModel newBoard = new BoardModel((PlayerModel) currentPlayer.deepCopy(), (PlayerModel) waitingPlayer.deepCopy());
+        BoardModel newBoard = new BoardModel(currentPlayer.deepCopy(), waitingPlayer.deepCopy());
 
         newBoard.p0_deckPos_ = this.p0_deckPos_;
         newBoard.p1_deckPos_ = this.p1_deckPos_;

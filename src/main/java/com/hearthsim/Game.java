@@ -78,8 +78,8 @@ public class Game {
 
 		GameRecord record = new GameSimpleRecord();
 
-		record.put(0, PlayerSide.CURRENT_PLAYER, (BoardModel)boardModel_.deepCopy(), null);
-		record.put(0, PlayerSide.CURRENT_PLAYER, (BoardModel)boardModel_.flipPlayers().deepCopy(), null);
+		record.put(0, PlayerSide.CURRENT_PLAYER, boardModel_.deepCopy(), null);
+		record.put(0, PlayerSide.CURRENT_PLAYER, boardModel_.flipPlayers().deepCopy(), null);
 
 		GameResult gameResult;
 		for(int turnCount = 0; turnCount < maxTurns_; ++turnCount) {
@@ -124,7 +124,7 @@ public class Game {
 
 		boardModel_ = endTurn(boardModel_);
 
-		record.put(turnCount + 1, PlayerSide.CURRENT_PLAYER, (BoardModel)boardModel_.deepCopy(), allMoves);
+		record.put(turnCount + 1, PlayerSide.CURRENT_PLAYER, boardModel_.deepCopy(), allMoves);
 
 		gameResult = checkGameOver(turnCount, record);
 		if(gameResult != null)
