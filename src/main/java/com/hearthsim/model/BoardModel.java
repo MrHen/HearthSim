@@ -635,7 +635,8 @@ public class BoardModel implements DeepCopyable<BoardModel> {
         return newBoard;
     }
 
-    public BoardModel deepCopy() {
+    @Override
+	public BoardModel deepCopy() {
         BoardModel newBoard = new BoardModel((PlayerModel) currentPlayer.deepCopy(), (PlayerModel) waitingPlayer.deepCopy());
 
         newBoard.p0_deckPos_ = this.p0_deckPos_;
@@ -702,7 +703,8 @@ public class BoardModel implements DeepCopyable<BoardModel> {
         return json;
     }
 
-    public String toString() {
+    @Override
+	public String toString() {
         String boardFormat = MDC.get("board_format");
         if (boardFormat != null && boardFormat.equals("simple")) {
             return simpleString();
