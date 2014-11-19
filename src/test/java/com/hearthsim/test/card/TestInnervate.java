@@ -65,7 +65,7 @@ public class TestInnervate {
 	public void test2() throws HSException {
 		
 		Minion target = board.data_.getCharacter(PlayerSide.CURRENT_PLAYER, 0);
-		Card theCard = board.data_.getCurrentPlayerCardHand(0);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.CURRENT_PLAYER, target, board, deck, null);
 		
 		assertFalse(ret == null);
@@ -91,7 +91,7 @@ public class TestInnervate {
 		board.data_.getCurrentPlayer().setMaxMana((byte)10);
 		
 		Minion target = board.data_.getCharacter(PlayerSide.CURRENT_PLAYER, 0);
-		Card theCard = board.data_.getCurrentPlayerCardHand(0);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.CURRENT_PLAYER, target, board, deck, null);
 		
 		

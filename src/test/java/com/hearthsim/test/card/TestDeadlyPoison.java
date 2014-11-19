@@ -60,7 +60,7 @@ public class TestDeadlyPoison {
 	public void testCannotPlayWithoutWeapon() throws HSException {
 		
 		Minion target = board.data_.getCharacter(PlayerSide.CURRENT_PLAYER, 0);
-		Card theCard = board.data_.getCurrentPlayerCardHand(0);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.CURRENT_PLAYER, target, board, deck, null);
 		
 		assertNull(ret);
@@ -82,7 +82,7 @@ public class TestDeadlyPoison {
 		board.data_.placeCardHandCurrentPlayer(fb);
 
 		Minion target = board.data_.getCharacter(PlayerSide.CURRENT_PLAYER, 0);
-		Card theCard = board.data_.getCurrentPlayerCardHand(1);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 1);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.CURRENT_PLAYER, target, board, deck, null);
 		
 		assertFalse(ret == null);
@@ -98,7 +98,7 @@ public class TestDeadlyPoison {
 		assertEquals(PlayerSide.WAITING_PLAYER.getPlayer(board).getMinions().get(0).getHealth(), health0);
 		assertEquals(PlayerSide.WAITING_PLAYER.getPlayer(board).getMinions().get(1).getHealth(), health1 - 1);
 
-		theCard = board.data_.getCurrentPlayerCardHand(0);
+		theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		target = board.data_.getCharacter(PlayerSide.CURRENT_PLAYER, 0);
 		ret = theCard.useOn(PlayerSide.CURRENT_PLAYER, target, board, deck, null);
 

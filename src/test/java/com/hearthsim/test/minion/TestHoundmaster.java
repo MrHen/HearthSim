@@ -91,7 +91,7 @@ public class TestHoundmaster {
 
 		Deck deck = null;
 		
-		Card theCard = board.data_.getCurrentPlayerCardHand(0);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		HearthTreeNode res;
 		Minion target = null;
 		

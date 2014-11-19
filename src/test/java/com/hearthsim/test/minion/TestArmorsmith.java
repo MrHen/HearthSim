@@ -53,12 +53,12 @@ public class TestArmorsmith {
 		board.data_.getWaitingPlayer().setMaxMana((byte)10);
 		
 		HearthTreeNode tmpBoard = new HearthTreeNode(board.data_.flipPlayers());
-		tmpBoard.data_.getCurrentPlayerCardHand(0).useOn(PlayerSide.CURRENT_PLAYER, tmpBoard.data_.getCurrentPlayerHero(), tmpBoard, deck, null);
-		tmpBoard.data_.getCurrentPlayerCardHand(0).useOn(PlayerSide.CURRENT_PLAYER, tmpBoard.data_.getCurrentPlayerHero(), tmpBoard, deck, null);
+		tmpBoard.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0).useOn(PlayerSide.CURRENT_PLAYER, tmpBoard.data_.getCurrentPlayerHero(), tmpBoard, deck, null);
+		tmpBoard.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0).useOn(PlayerSide.CURRENT_PLAYER, tmpBoard.data_.getCurrentPlayerHero(), tmpBoard, deck, null);
 
 		board = new HearthTreeNode(tmpBoard.data_.flipPlayers());
-		board.data_.getCurrentPlayerCardHand(0).useOn(PlayerSide.CURRENT_PLAYER, board.data_.getCurrentPlayerHero(), board, deck, null);
-		board.data_.getCurrentPlayerCardHand(0).useOn(PlayerSide.CURRENT_PLAYER, board.data_.getCurrentPlayerHero(), board, deck, null);
+		board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0).useOn(PlayerSide.CURRENT_PLAYER, board.data_.getCurrentPlayerHero(), board, deck, null);
+		board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0).useOn(PlayerSide.CURRENT_PLAYER, board.data_.getCurrentPlayerHero(), board, deck, null);
 
 		board.data_.resetMana();
 		board.data_.resetMinions();
@@ -73,7 +73,7 @@ public class TestArmorsmith {
 	public void test0() throws HSException {
 
 		Minion target = board.data_.getCharacter(PlayerSide.CURRENT_PLAYER, 0);
-		Card theCard = board.data_.getCurrentPlayerCardHand(0);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.CURRENT_PLAYER, target, board, deck, null);
 		assertFalse(ret == null);
 		assertEquals(board.data_.getNumCards_hand(), 0);
@@ -104,7 +104,7 @@ public class TestArmorsmith {
 		
 		
 		board.data_.placeCardHandCurrentPlayer(new HolySmite());
-		theCard = board.data_.getCurrentPlayerCardHand(0);
+		theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		
 		target = board.data_.getCharacter(PlayerSide.CURRENT_PLAYER, 3);
 		ret = theCard.useOn(PlayerSide.CURRENT_PLAYER, target, ret, deck, null);
@@ -140,7 +140,7 @@ public class TestArmorsmith {
 		
 		
 		board.data_.placeCardHandCurrentPlayer(new HolySmite());
-		theCard = board.data_.getCurrentPlayerCardHand(0);
+		theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		target = board.data_.getCharacter(PlayerSide.WAITING_PLAYER, 2);
 		ret = theCard.useOn(PlayerSide.WAITING_PLAYER, target, ret, deck, null);
 		assertFalse(ret == null);
@@ -170,7 +170,7 @@ public class TestArmorsmith {
 		
 		ret = new HearthTreeNode(ret.data_.flipPlayers());
 		ret.data_.placeCardHandCurrentPlayer(new HolySmite());
-		theCard = ret.data_.getCurrentPlayerCardHand(0);
+		theCard = ret.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		target = ret.data_.getCharacter(PlayerSide.WAITING_PLAYER, 2);
 		ret = theCard.useOn(PlayerSide.WAITING_PLAYER, target, ret, deck, null);
 		assertFalse(ret == null);

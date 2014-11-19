@@ -103,7 +103,7 @@ public class TestNorthshireCleric {
 		board.data_.placeCardHandCurrentPlayer(fb);
 		
 		Minion target = board.data_.getCharacter(PlayerSide.CURRENT_PLAYER, 0);
-		Card theCard = board.data_.getCurrentPlayerCardHand(0);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.CURRENT_PLAYER, target, board, deck, null);
 		assertFalse(ret == null);
 
@@ -122,7 +122,7 @@ public class TestNorthshireCleric {
 		
 		AncestralHealing ah = new AncestralHealing();
 		board.data_.placeCardHandCurrentPlayer(ah);
-		theCard = board.data_.getCurrentPlayerCardHand(0);
+		theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		target = board.data_.getCharacter(PlayerSide.CURRENT_PLAYER, 1);
 		ret = theCard.useOn(PlayerSide.CURRENT_PLAYER, target, board, deck, null);
 		
@@ -143,7 +143,7 @@ public class TestNorthshireCleric {
 		
 		ah = new AncestralHealing();
 		board.data_.placeCardHandCurrentPlayer(ah);
-		theCard = board.data_.getCurrentPlayerCardHand(0);
+		theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		target = board.data_.getCharacter(PlayerSide.CURRENT_PLAYER, 3);
 		ret = theCard.useOn(PlayerSide.CURRENT_PLAYER, target, board, deck, null);
 		
@@ -172,10 +172,10 @@ public class TestNorthshireCleric {
 		board.data_.placeCardHandCurrentPlayer(fb2);
 		
 		Minion target = board.data_.getCharacter(PlayerSide.CURRENT_PLAYER, 2);
-		Card theCard = board.data_.getCurrentPlayerCardHand(0);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.CURRENT_PLAYER, target, board, deck, null);
 		
-		theCard = board.data_.getCurrentPlayerCardHand(0);
+		theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		target = board.data_.getCharacter(PlayerSide.CURRENT_PLAYER, 3);
 		ret = theCard.useOn(PlayerSide.CURRENT_PLAYER, target, board, deck, null);
 		assertFalse(ret == null);
@@ -195,7 +195,7 @@ public class TestNorthshireCleric {
 		
 		AncestralHealing ah = new AncestralHealing();
 		board.data_.placeCardHandCurrentPlayer(ah);
-		theCard = board.data_.getCurrentPlayerCardHand(0);
+		theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		target = board.data_.getCharacter(PlayerSide.CURRENT_PLAYER, 2);
 		ret = theCard.useOn(PlayerSide.CURRENT_PLAYER, target, board, deck, null);
 		

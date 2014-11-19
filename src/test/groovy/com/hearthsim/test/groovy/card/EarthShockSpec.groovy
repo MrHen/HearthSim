@@ -34,7 +34,7 @@ class EarthShockSpec extends CardSpec {
 	def "playing Earth Shock on a buffed health 1 target"() {
 		def copiedBoard = startingBoard.deepCopy()
 		def target = root.data_.getCharacter(WAITING_PLAYER, 1)
-		def theCard = root.data_.getCurrentPlayerCardHand(0)
+		def theCard = root.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0)
 		def ret = theCard.useOn(WAITING_PLAYER, target, root, null, null)
 
 		expect:

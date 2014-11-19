@@ -36,9 +36,9 @@ public class Lightwell extends Minion {
 			if (!isDamaged)
 				return super.startTurn(thisMinionPlayerIndex, toRet, deckPlayer0, deckPlayer1);
 			
-			Minion targetMinion = toRet.data_.getCurrentPlayerCharacter((int)(Math.random()*(currentPlayer.getNumMinions() + 1)));
+			Minion targetMinion = toRet.data_.getCharacter(PlayerSide.CURRENT_PLAYER, (int)(Math.random()*(currentPlayer.getNumMinions() + 1)));
 			while (targetMinion.getTotalMaxHealth() == targetMinion.getTotalHealth()) {
-				targetMinion = toRet.data_.getCurrentPlayerCharacter((int)(Math.random()*(currentPlayer.getNumMinions() + 1)));
+				targetMinion = toRet.data_.getCharacter(PlayerSide.CURRENT_PLAYER, (int)(Math.random()*(currentPlayer.getNumMinions() + 1)));
 			}
 			toRet = targetMinion.takeHeal((byte)3, PlayerSide.CURRENT_PLAYER, toRet, deckPlayer0, deckPlayer1);
 		}

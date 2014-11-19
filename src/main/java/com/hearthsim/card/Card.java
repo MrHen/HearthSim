@@ -191,6 +191,7 @@ public class Card implements DeepCopyable<Card> {
 	 * End the turn and resets the card state
 	 * 
 	 * This function is called at the end of the turn. Any derived class must override it and remove any temporary buffs that it has.
+	 * @throws HSException 
 	 */
 	public HearthTreeNode endTurn(PlayerSide thisMinionPlayerIndex, HearthTreeNode boardModel, Deck deckPlayer0,
 			Deck deckPlayer1) throws HSException {
@@ -201,6 +202,7 @@ public class Card implements DeepCopyable<Card> {
 	 * Called at the start of the turn
 	 * 
 	 * This function is called at the start of the turn. Any derived class must override it to implement whatever "start of the turn" effect the card has.
+	 * @throws HSException 
 	 */
 	public HearthTreeNode startTurn(PlayerSide thisMinionPlayerIndex, HearthTreeNode boardModel, Deck deckPlayer0,
 			Deck deckPlayer1) throws HSException {
@@ -284,6 +286,7 @@ public class Card implements DeepCopyable<Card> {
 	 * @param boardState The BoardState before this card has performed its action. It will be manipulated and returned.
 	 *
 	 * @return The boardState is manipulated and returned
+	 * @throws HSException 
 	 */
 	protected HearthTreeNode use_core(
 			PlayerSide side,
@@ -403,10 +406,10 @@ public class Card implements DeepCopyable<Card> {
 	 * @param deckPlayer0 The deck of player0
 	 * @param deckPlayer1 The deck of player1
 	 * @return The boardState is manipulated and returned
+	 * @throws HSException 
 	 */
 	public HearthTreeNode onCardPlayBegin(PlayerSide thisCardPlayerSide, PlayerSide cardUserPlayerSide, Card usedCard,
-			HearthTreeNode boardState, Deck deckPlayer0, Deck deckPlayer1, boolean singleRealizationOnly)
-			throws HSException {
+			HearthTreeNode boardState, Deck deckPlayer0, Deck deckPlayer1, boolean singleRealizationOnly) throws HSException {
 		return boardState;
 	}
 
@@ -423,8 +426,7 @@ public class Card implements DeepCopyable<Card> {
 	 * @return The boardState is manipulated and returned
 	 */
 	public HearthTreeNode onCardPlayResolve(PlayerSide thisCardPlayerSide, PlayerSide cardUserPlayerSide,
-			Card usedCard, HearthTreeNode boardState, Deck deckPlayer0, Deck deckPlayer1, boolean singleRealizationOnly)
-			throws HSException {
+			Card usedCard, HearthTreeNode boardState, Deck deckPlayer0, Deck deckPlayer1, boolean singleRealizationOnly) {
 		return boardState;
 	}
 

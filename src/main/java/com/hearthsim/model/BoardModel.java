@@ -134,35 +134,40 @@ public class BoardModel implements DeepCopyable<BoardModel> {
         }
     }
 
-    public Minion getMinion(PlayerSide side, int index) throws HSInvalidPlayerIndexException {
+    public Minion getMinion(PlayerSide side, int index) {
         return modelForSide(side).getMinions().get(index);
     }
 
-    public Card getCard_hand(PlayerSide playerSide, int index) throws HSInvalidPlayerIndexException {
+    public Card getCardHand(PlayerSide playerSide, int index) {
         return modelForSide(playerSide).getHand().get(index);
     }
 
+    @Deprecated
     public Card getCurrentPlayerCardHand(int index) {
         return currentPlayer.getHand().get(index);
     }
 
+    @Deprecated
     public Card getWaitingPlayerCardHand(int index) {
         return waitingPlayer.getHand().get(index);
     }
 
-    public Minion getCharacter(PlayerSide playerSide, int index) throws HSInvalidPlayerIndexException {
+    public Minion getCharacter(PlayerSide playerSide, int index) {
         PlayerModel playerModel = modelForSide(playerSide);
         return index == 0 ? playerModel.getHero() : playerModel.getMinions().get(index - 1);
     }
 
+    @Deprecated
     public Minion getCurrentPlayerCharacter(int index) {
         return getMinionForCharacter(PlayerSide.CURRENT_PLAYER, index);
     }
 
+    @Deprecated
     public Minion getWaitingPlayerCharacter(int index) {
         return getMinionForCharacter(PlayerSide.WAITING_PLAYER, index);
     }
 
+    @Deprecated
     public Minion getMinionForCharacter(PlayerSide playerSide, int index) {
         PlayerModel playerModel = modelForSide(playerSide);
         return index == 0 ? playerModel.getHero() : playerModel.getMinions().get(index - 1);

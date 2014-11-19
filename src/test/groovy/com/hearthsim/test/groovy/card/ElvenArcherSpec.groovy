@@ -46,7 +46,7 @@ class ElvenArcherSpec extends CardSpec {
     def "cannot play for waiting player's side"() {
         def copiedBoard = startingBoard.deepCopy()
         def target = copiedBoard.getCharacter(WAITING_PLAYER, 0)
-        def theCard = copiedBoard.getCurrentPlayerCardHand(0)
+        def theCard = copiedBoard.getCardHand(PlayerSide.CURRENT_PLAYER, 0)
         def ret = theCard.useOn(WAITING_PLAYER, target, root, null, null)
 
         expect:
@@ -59,7 +59,7 @@ class ElvenArcherSpec extends CardSpec {
         def minionPlayedBoard = startingBoard.deepCopy()
         def copiedRoot = new HearthTreeNode(minionPlayedBoard)
         def target = minionPlayedBoard.getCharacter(CURRENT_PLAYER, 2);
-        def theCard = minionPlayedBoard.getCurrentPlayerCardHand(0);
+        def theCard = minionPlayedBoard.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
         def ret = theCard.useOn(CURRENT_PLAYER, target, copiedRoot, null, null);
 
         expect:

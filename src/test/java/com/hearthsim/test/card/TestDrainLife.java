@@ -60,7 +60,7 @@ public class TestDrainLife {
 		board.data_.placeCardHandCurrentPlayer(fb);
 		
 		Minion target = board.data_.getCharacter(PlayerSide.CURRENT_PLAYER, 0);
-		Card theCard = board.data_.getCurrentPlayerCardHand(0);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.CURRENT_PLAYER, target, board, deck, null);
 		assertNull(ret); // TODO I think this is technically possible. Leave this test here in case we enable this behavior.
 		assertEquals(board.data_.getNumCards_hand(), 1);
@@ -86,7 +86,7 @@ public class TestDrainLife {
 		board.data_.placeCardHandCurrentPlayer(fb);
 		
 		Minion target = board.data_.getCharacter(PlayerSide.CURRENT_PLAYER, 1);
-		Card theCard = board.data_.getCurrentPlayerCardHand(0);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.CURRENT_PLAYER, target, board, deck, null);
 		assertFalse(ret == null);
 		assertEquals(board.data_.getNumCards_hand(), 0);
@@ -114,7 +114,7 @@ public class TestDrainLife {
 		board.data_.getCurrentPlayerHero().setHealth((byte)15);
 		
 		Minion target = board.data_.getCharacter(PlayerSide.CURRENT_PLAYER, 1);
-		Card theCard = board.data_.getCurrentPlayerCardHand(0);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.CURRENT_PLAYER, target, board, deck, null);
 		assertFalse(ret == null);
 		assertEquals(board.data_.getNumCards_hand(), 0);

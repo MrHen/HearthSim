@@ -32,7 +32,7 @@ class TruesilverChampionSpec extends CardSpec {
         def copiedBoard = startingBoard.deepCopy()
         def copiedRoot = new HearthTreeNode(copiedBoard)
         def target = copiedBoard.getCharacter(CURRENT_PLAYER, 0);
-        def theCard = copiedBoard.getCurrentPlayerCardHand(0);
+        def theCard = copiedBoard.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
         def ret = theCard.useOn(CURRENT_PLAYER, target, copiedRoot, null, null);
         Minion hero = ret.data_.getCurrentPlayerHero();
         target = copiedBoard.getCharacter(PlayerSide.WAITING_PLAYER, 0);

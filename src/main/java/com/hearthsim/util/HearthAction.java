@@ -51,7 +51,7 @@ public class HearthAction {
 		HearthTreeNode toRet = boardState;
 		switch(verb_) {
 			case USE_CARD: {
-				Card card = boardState.data_.getCard_hand(actionPerformerPlayerSide, cardOrCharacterIndex_);
+				Card card = boardState.data_.getCardHand(actionPerformerPlayerSide, cardOrCharacterIndex_);
 				Minion target = boardState.data_.getCharacter(targetPlayerSide, targetCharacterIndex_);
 				toRet = card.useOn(targetPlayerSide, target, toRet, deckPlayer0, deckPlayer1, true);
 			}

@@ -47,7 +47,7 @@ public class TestSpellDamageAoe {
 	@Test
 	public void testHitsEnemyMinions() throws HSException {
 		Minion target = board.data_.getCharacter(PlayerSide.WAITING_PLAYER, 0); // Opponent hero
-		Card theCard = board.data_.getCurrentPlayerCardHand(0);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.WAITING_PLAYER, target, board, null, null);
 		assertEquals(board, ret);
 
@@ -75,7 +75,7 @@ public class TestSpellDamageAoe {
 		board.data_.getCurrentPlayer().setMana(5);
 
 		Minion target = board.data_.getCharacter(PlayerSide.WAITING_PLAYER, 0); // Opponent hero
-		Card theCard = board.data_.getCurrentPlayerCardHand(1);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 1);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.WAITING_PLAYER, target, board, null, null);
 		assertEquals(board, ret);
 
@@ -103,7 +103,7 @@ public class TestSpellDamageAoe {
 		board.data_.getCurrentPlayer().setMana(5);
 
 		Minion target = board.data_.getCharacter(PlayerSide.WAITING_PLAYER, 0); // Opponent hero
-		Card theCard = board.data_.getCurrentPlayerCardHand(1);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 1);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.WAITING_PLAYER, target, board, null, null);
 		assertEquals(board, ret);
 
@@ -130,7 +130,7 @@ public class TestSpellDamageAoe {
 		board.data_.placeMinion(PlayerSide.CURRENT_PLAYER, kobold);
 
 		Minion target = board.data_.getCharacter(PlayerSide.WAITING_PLAYER, 0); // Opponent hero
-		Card theCard = board.data_.getCurrentPlayerCardHand(0);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.WAITING_PLAYER, target, board, null, null);
 		assertEquals(board, ret);
 
@@ -154,7 +154,7 @@ public class TestSpellDamageAoe {
 	@Test
 	public void testCannotTargetOpponentMinion() throws HSException {
 		Minion target = board.data_.getCharacter(PlayerSide.WAITING_PLAYER, 1);
-		Card theCard = board.data_.getCurrentPlayerCardHand(0);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.WAITING_PLAYER, target, board, null, null);
 		assertNull(ret);
 
@@ -178,7 +178,7 @@ public class TestSpellDamageAoe {
 	@Test
 	public void testCannotTargetSelf() throws HSException {
 		Minion target = board.data_.getCharacter(PlayerSide.CURRENT_PLAYER, 0); // Self
-		Card theCard = board.data_.getCurrentPlayerCardHand(0);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.CURRENT_PLAYER, target, board, null, null);
 		assertNull(ret);
 
@@ -202,7 +202,7 @@ public class TestSpellDamageAoe {
 	@Test
 	public void testCannotTargetMinion() throws HSException {
 		Minion target = board.data_.getCharacter(PlayerSide.CURRENT_PLAYER, 1);
-		Card theCard = board.data_.getCurrentPlayerCardHand(0);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.CURRENT_PLAYER, target, board, null, null);
 		assertNull(ret);
 

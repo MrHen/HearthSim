@@ -63,7 +63,7 @@ public class TestKillCommand {
 	public void test0() throws HSException {
 		
 		Minion target = board.data_.getCharacter(PlayerSide.WAITING_PLAYER, 0);
-		Card theCard = board.data_.getCurrentPlayerCardHand(0);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.WAITING_PLAYER, target, board, deck, null);
 		
 		assertFalse(ret == null);
@@ -84,7 +84,7 @@ public class TestKillCommand {
 	public void test1() throws HSException {
 		
 		Minion target = board.data_.getCharacter(PlayerSide.WAITING_PLAYER, 1);
-		Card theCard = board.data_.getCurrentPlayerCardHand(0);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.WAITING_PLAYER, target, board, deck, null);
 		
 		assertFalse(ret == null);
@@ -106,7 +106,7 @@ public class TestKillCommand {
 		
 		board.data_.placeMinion(PlayerSide.CURRENT_PLAYER, new IronfurGrizzly());
 		Minion target = board.data_.getCharacter(PlayerSide.WAITING_PLAYER, 0);
-		Card theCard = board.data_.getCurrentPlayerCardHand(0);
+		Card theCard = board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
 		HearthTreeNode ret = theCard.useOn(PlayerSide.WAITING_PLAYER, target, board, deck, null);
 		
 		assertFalse(ret == null);

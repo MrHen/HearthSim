@@ -68,13 +68,13 @@ public class Doomguard extends Minion {
 				if (hand.size() > 1) {
 					for (int indx1 = indx0+1; indx1 < hand.size(); ++indx1) {
 						HearthTreeNode cNode = new HearthTreeNode((BoardModel)toRet.data_.deepCopy());
-						cNode.data_.removeCard_hand(cNode.data_.getCurrentPlayerCardHand(indx1));
-						cNode.data_.removeCard_hand(cNode.data_.getCurrentPlayerCardHand(indx0)); //indx1 > indx0
+						cNode.data_.removeCard_hand(cNode.data_.getCardHand(PlayerSide.CURRENT_PLAYER, indx1));
+						cNode.data_.removeCard_hand(cNode.data_.getCardHand(PlayerSide.CURRENT_PLAYER, indx0)); //indx1 > indx0
 						toRet.addChild(cNode);
 					}
 				} else {
 					HearthTreeNode cNode = new HearthTreeNode((BoardModel)toRet.data_.deepCopy());
-					cNode.data_.removeCard_hand(cNode.data_.getCurrentPlayerCardHand(indx0));					
+					cNode.data_.removeCard_hand(cNode.data_.getCardHand(PlayerSide.CURRENT_PLAYER, indx0));					
 					toRet.addChild(cNode);
 				}
 			}

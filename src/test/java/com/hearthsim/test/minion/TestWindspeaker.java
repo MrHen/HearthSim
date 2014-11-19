@@ -47,4 +47,5 @@ public class TestWindspeaker {
 		assertEquals(board, ret);
 
 		assertEquals(board.numChildren(), 1);
-	}}
+	}
+}
