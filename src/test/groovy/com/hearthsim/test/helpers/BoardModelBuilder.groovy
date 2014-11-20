@@ -49,16 +49,28 @@ class BoardModelBuilder {
             boardModel.placeMinion(playerSide, minion);
         }
     }
+	
+	private deck(List cardsInDeck) {
+		cardsInDeck.each {
+			boardModel.placeCardDeck(playerSide, it.newInstance())
+		}
+	}
 
     private updateMinion(int position, Map options){
         def minion = boardModel.getMinion(playerSide, position)
         minion.attack += options.deltaAttack ? options.deltaAttack : 0;
         minion.health += options.deltaHealth ? options.deltaHealth : 0;
-
+		minion.maxHealth += options.deltaMaxHealth ? options.deltaMaxHealth : 0;
+		
 		minion.auraAttack += options.deltaAuraAttack ? options.deltaAuraAttack : 0;
         minion.auraHealth += options.deltaAuraHealth ? options.deltaAuraHealth : 0;
 		
 		minion.spellDamage += options.deltaSpellDamage ? options.deltaSpellDamage : 0;
+		
+		minion.hasAttacked_ = options.containsKey('hasAttacked') ? options.hasAttacked : minion.hasAttacked_
+		minion.hasBeenUsed = options.containsKey('hasBeenUsed') ? options.hasBeenUsed : minion.hasBeenUsed
+		
+		minion.frozen = options.containsKey('frozen') ? options.frozen : minion.frozen
 		
     }
 
@@ -84,6 +96,11 @@ class BoardModelBuilder {
         side.hero.attack = attack
     }
 
+	private heroFrozen(Boolean isFrozen){
+		def side = boardModel.modelForSide(playerSide)
+		side.hero.frozen = isFrozen
+	}
+
     private mana(Number mana) {
         def model = boardModel.modelForSide(playerSide)
         model.setMana((int) mana)
@@ -91,11 +108,21 @@ class BoardModelBuilder {
         if (model.getMaxMana() == 0)
             model.setMaxMana((int) mana)
     }
-
+	
+	private maxMana(Number mana) {
+        def model = boardModel.modelForSide(playerSide)
+		model.setMaxMana((int) mana)
+	}
+		
     private playMinion(Class<Minion> minionClass) {
         removeCardFromHand(minionClass)
         addMinionToField(minionClass)
     }
+
+	private playMinionWithCharge(Class<Minion> minionClass) {
+		removeCardFromHand(minionClass)
+		addMinionToField(minionClass, false, true)
+	}
 
     private removeMinion(int index){
         boardModel.removeMinion(playerSide, index)
@@ -144,6 +171,12 @@ class BoardModelBuilder {
         side.hero.weapon.weaponCharge_ = charge
     }
 
+	private addDeckPos(Number num) {
+		if (playerSide == PlayerSide.CURRENT_PLAYER) 
+			boardModel.p0_deckPos_ += (int) num
+		else 
+			boardModel.p1_deckPos_ += (int) num
+	}
 
     private currentPlayer(Closure player) {
         playerSide = PlayerSide.CURRENT_PLAYER

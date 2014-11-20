@@ -108,7 +108,7 @@ public class Game {
 	}
 
 	private GameResult playTurn(int turnCount, GameRecord record, ArtificialPlayer ai) throws HSException {
-		beginTurn(turnCount, boardModel_);
+		beginTurn(boardModel_);
 
 		GameResult gameResult;
 
@@ -124,7 +124,7 @@ public class Game {
 
 		boardModel_ = endTurn(boardModel_);
 
-		record.put(turnCount + 1, PlayerSide.CURRENT_PLAYER, boardModel_.deepCopy(), allMoves);
+		record.put(turnCount + 1, PlayerSide.CURRENT_PLAYER, (BoardModel)boardModel_.deepCopy(), allMoves);
 
 		gameResult = checkGameOver(turnCount, record);
 		if(gameResult != null)
@@ -146,7 +146,7 @@ public class Game {
 		return null;
 	}
 
-	public BoardModel beginTurn(int turn, BoardModel board) throws HSException {
+	public static BoardModel beginTurn(BoardModel board) throws HSException {
 
 		HearthTreeNode toRet = new HearthTreeNode(board);
 
@@ -157,6 +157,8 @@ public class Game {
 			try {
 				toRet = targetMinion.startTurn(PlayerSide.CURRENT_PLAYER, toRet, toRet.data_.getCurrentPlayer()
 						.getDeck(), toRet.data_.getWaitingPlayer().getDeck());
+				toRet = BoardStateFactoryBase.handleDeadMinions(toRet, toRet.data_.getCurrentPlayer().getDeck(),
+						toRet.data_.getWaitingPlayer().getDeck());
 			} catch(HSInvalidPlayerIndexException e) {
 				e.printStackTrace();
 			}
@@ -165,13 +167,12 @@ public class Game {
 			try {
 				toRet = targetMinion.startTurn(PlayerSide.WAITING_PLAYER, toRet, toRet.data_.getCurrentPlayer()
 						.getDeck(), toRet.data_.getWaitingPlayer().getDeck());
+				toRet = BoardStateFactoryBase.handleDeadMinions(toRet, toRet.data_.getCurrentPlayer().getDeck(),
+						toRet.data_.getWaitingPlayer().getDeck());
 			} catch(HSInvalidPlayerIndexException e) {
 				e.printStackTrace();
 			}
 		}
-
-		toRet = BoardStateFactoryBase.handleDeadMinions(toRet, toRet.data_.getCurrentPlayer().getDeck(), toRet.data_
-				.getWaitingPlayer().getDeck());
 
 		Card newCard = toRet.data_.getCurrentPlayer().drawFromDeck(toRet.data_.getDeckPos_p0());
 		if(newCard == null) {
@@ -191,7 +192,7 @@ public class Game {
 		return toRet.data_;
 	}
 
-	public BoardModel endTurn(BoardModel board) throws HSException {
+	public static BoardModel endTurn(BoardModel board) throws HSException {
 		Deck deckPlayer0 = board.getCurrentPlayer().getDeck();
 		Deck deckPlayer1 = board.getWaitingPlayer().getDeck();
 

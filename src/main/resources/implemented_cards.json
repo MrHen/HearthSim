@@ -152,6 +152,10 @@
         "class": "com.hearthsim.card.spellcard.concrete.BlessingOfMight"
     },
     {
+        "name": "Blood Imp",
+        "class": "com.hearthsim.card.minion.concrete.BloodImp"
+    },
+    {
         "name": "Blood Knight",
         "class": "com.hearthsim.card.minion.concrete.BloodKnight"
     },
@@ -166,6 +170,14 @@
     {
         "name": "Bloodmage Thalnos",
         "class": "com.hearthsim.card.minion.concrete.BloodmageThalnos"
+    },
+    {
+        "name": "Bloodsail Raider",
+        "class": "com.hearthsim.card.minion.concrete.BloodsailRaider"
+    },
+    {
+        "name": "Bloodsail Corsair",
+        "class": "com.hearthsim.card.minion.concrete.BloodsailCorsair"
     },
     {
         "name": "Bluegill Warrior",
@@ -250,6 +262,10 @@
     {
         "name": "Defender of Argus",
         "class": "com.hearthsim.card.minion.concrete.DefenderOfArgus"
+    },
+    {
+        "name": "Demolisher",
+        "class": "com.hearthsim.card.minion.concrete.Demolisher"
     },
     {
         "name": "Demonfire",
@@ -344,6 +360,10 @@
         "class": "com.hearthsim.card.minion.concrete.FlesheatingGhoul"
     },
     {
+        "name": "Frost Elemental",
+        "class": "com.hearthsim.card.minion.concrete.FrostElemental"
+    },
+    {
         "name": "Frost Nova",
         "class": "com.hearthsim.card.spellcard.concrete.FrostNova"
     },
@@ -366,6 +386,10 @@
     {
         "name": "Gnomish Inventor",
         "class": "com.hearthsim.card.minion.concrete.GnomishInventor"
+    },
+    {
+        "name": "Gnoll",
+        "class": "com.hearthsim.card.minion.concrete.Gnoll"
     },
     {
         "name": "Goldshire Footman",
@@ -414,6 +438,10 @@
     {
         "name": "Hex",
         "class": "com.hearthsim.card.spellcard.concrete.Hex"
+    },
+    {
+        "name": "Hogger",
+        "class": "com.hearthsim.card.minion.concrete.Hogger"
     },
     {
         "name": "Holy Fire",
@@ -508,6 +536,10 @@
         "class": "com.hearthsim.card.spellcard.concrete.LayOnHands"
     },
     {
+        "name": "Leeroy Jenkins",
+        "class": "com.hearthsim.card.minion.concrete.LeeroyJenkins"
+    },
+    {
         "name": "Leper Gnome",
         "class": "com.hearthsim.card.minion.concrete.LeperGnome"
     },
@@ -538,6 +570,10 @@
     {
         "name": "Mark of the Wild",
         "class": "com.hearthsim.card.spellcard.concrete.MarkOfTheWild"
+    },
+    {
+        "name": "Master Swordsmith",
+        "class": "com.hearthsim.card.minion.concrete.MasterSwordsmith"
     },
     {
         "name": "Mind Blast",
@@ -846,6 +882,10 @@
     {
         "name": "Water Elemental",
         "class": "com.hearthsim.card.minion.concrete.WaterElemental"
+    },
+    {
+        "name": "Whelp",
+        "class": "com.hearthsim.card.minion.concrete.Whelp"
     },
     {
         "name": "Whirlwind",

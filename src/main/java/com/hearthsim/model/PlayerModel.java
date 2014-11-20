@@ -170,6 +170,11 @@ public class PlayerModel implements DeepCopyable<PlayerModel> {
         hand.add(card);
     }
 
+    public void placeCardDeck(Card card) {
+        deck.addCard(card);
+    }
+
+    
     public int getPlayerId() {
         return playerId;
     }
