@@ -58,17 +58,17 @@ public class TestAlexstrasza {
 		board.data_.getWaitingPlayer().setMaxMana((byte)9);
 
 		HearthTreeNode tmpBoard = new HearthTreeNode(board.data_.flipPlayers());
-		tmpBoard.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0).useOn(PlayerSide.CURRENT_PLAYER,
+		tmpBoard.data_.getCard_hand(PlayerSide.CURRENT_PLAYER, 0).useOn(PlayerSide.CURRENT_PLAYER,
 				tmpBoard.data_.getCurrentPlayerHero(), tmpBoard, deck, null);
-		tmpBoard.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0).useOn(PlayerSide.CURRENT_PLAYER,
+		tmpBoard.data_.getCard_hand(PlayerSide.CURRENT_PLAYER, 0).useOn(PlayerSide.CURRENT_PLAYER,
 				tmpBoard.data_.getCurrentPlayerHero(), tmpBoard, deck, null);
-		tmpBoard.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0).useOn(PlayerSide.CURRENT_PLAYER,
+		tmpBoard.data_.getCard_hand(PlayerSide.CURRENT_PLAYER, 0).useOn(PlayerSide.CURRENT_PLAYER,
 				tmpBoard.data_.getCurrentPlayerHero(), tmpBoard, deck, null);
 
 		board = new HearthTreeNode(tmpBoard.data_.flipPlayers());
-		board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0).useOn(PlayerSide.CURRENT_PLAYER,
+		board.data_.getCard_hand(PlayerSide.CURRENT_PLAYER, 0).useOn(PlayerSide.CURRENT_PLAYER,
 				board.data_.getCurrentPlayerHero(), board, deck, null);
-		board.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0).useOn(PlayerSide.CURRENT_PLAYER,
+		board.data_.getCard_hand(PlayerSide.CURRENT_PLAYER, 0).useOn(PlayerSide.CURRENT_PLAYER,
 				board.data_.getCurrentPlayerHero(), board, deck, null);
 
 		board.data_.resetMana();
