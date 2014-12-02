@@ -44,7 +44,7 @@ class AncientMageSpec extends CardSpec {
 	def "playing Ancient Mage on the right edge"() {
 		def copiedBoard = startingBoard.deepCopy()
 		def target = root.data_.getCharacter(CURRENT_PLAYER, 2)
-		def theCard = root.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0)
+		def theCard = root.data_.getCardHand(CURRENT_PLAYER, 0)
 		def ret = theCard.useOn(CURRENT_PLAYER, target, root, null, null)
 
 		expect:

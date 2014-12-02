@@ -31,7 +31,7 @@ class AncientBrewmasterSpec extends CardSpec {
 	def "playing Ancient Brewmaster while there are no other minions no board"() {
 		def copiedBoard = startingBoard.deepCopy()
 		def target = root.data_.getCharacter(CURRENT_PLAYER, 0)
-		def theCard = root.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0)
+		def theCard = root.data_.getCardHand(CURRENT_PLAYER, 0)
 		def ret = theCard.useOn(CURRENT_PLAYER, target, root, null, null)
 
 		expect:
@@ -50,7 +50,7 @@ class AncientBrewmasterSpec extends CardSpec {
 		startingBoard.placeMinion(CURRENT_PLAYER, new StormwindChampion())
 		def copiedBoard = startingBoard.deepCopy()
 		def target = root.data_.getCharacter(CURRENT_PLAYER, 1)
-		def theCard = root.data_.getCardHand(PlayerSide.CURRENT_PLAYER, 0)
+		def theCard = root.data_.getCardHand(CURRENT_PLAYER, 0)
 		def ret = theCard.useOn(CURRENT_PLAYER, target, root, null, null)
 
 		expect:

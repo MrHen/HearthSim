@@ -30,9 +30,9 @@ class SwordOfJusticeSpec extends CardSpec{
         def copiedBoard = startingBoard.deepCopy()
         def copiedRoot = new HearthTreeNode(copiedBoard)
         def target = copiedBoard.getCharacter(CURRENT_PLAYER, 0);
-        def swordOfJustice = copiedBoard.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
+        def swordOfJustice = copiedBoard.getCardHand(CURRENT_PLAYER, 0);
         def ret = swordOfJustice.useOn(CURRENT_PLAYER, target, copiedRoot, null, null);
-        def raptor = copiedBoard.getCardHand(PlayerSide.CURRENT_PLAYER, 0);
+        def raptor = copiedBoard.getCardHand(CURRENT_PLAYER, 0);
         ret = raptor.useOn(CURRENT_PLAYER, target, ret, null, null);
 
         expect:
